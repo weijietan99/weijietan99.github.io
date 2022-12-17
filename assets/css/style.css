@@ -2077,3 +2077,17 @@ textarea.form-input::-webkit-resizer {
 .sidebar {
     min-width: 500px;
 }
+
+
+@media only screen and (min-device-width:300px) {
+    .service-icon-box {
+
+        display: flex;
+        justify-content: center;
+    }
+
+    .sidebar {
+        min-width: 370px;
+        max-height: 140px;
+    }
+}
