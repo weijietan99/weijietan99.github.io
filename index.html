@@ -745,9 +745,74 @@
 
                             }
 
-                        </script>
+                            </script>
+
+                                <ul class="project-list">
+
+                                 <script>
+                                    imagelist = ["./assets/Project industry training/Industrial Training_1.jpg", "./assets/Project industry training/Industrial Training_2.jpg", "./assets/Project industry training/Industrial Training_3.jpg",
+                                                "./assets/Project industry training/Industrial Training_4.jpg", "./assets/Project industry training/Industrial Training_5.jpg", "./assets/Project industry training/Industrial Training_6.jpg",
+                                                "./assets/Project industry training/Industrial Training_7.jpg", "./assets/Project industry training/Industrial Training_8.jpg", "./assets/Project industry training/Industrial Training_9.jpg",];
+                                    titlelist = ["1", "2", "3",
+                                                "4", "5c", "6c",
+                                                "7", "8", "9",];
+                                    modallist = [];
+                                    modalimagelist = [];
+
+                                for (let i = 0; i < 9; i++) {
+
+                                    document.writeln(`  <li class="project-item  active" data-filter-item data-category="Project industry training">
+                                    <a id="${i}" onclick="openmodal(${i})">
+                                    <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                    <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    <img src="${imagelist[i]}" alt="Project industry training" loading="lazy" class="imageportfolio">
+                                    </figure>
+                                    <h3 class="project-title">${titlelist[i]}</h3>
+                                    <p class="project-category">Project industry training</p>
+                                    </a>
+                                    </li>
+                                    <div class="modal">
+        
+                                    <img src='${imagelist[i]}' class="modal-content" id="${i}">
+                                    <div id="caption"></div>
+                                    </div>`);
+
+                                    modallist[i] = document.getElementsByClassName('modal')[i];
 
 
+
+                                     }
+                                        function openmodal(i) {
+                                        modallist[i].style.display = "block";
+
+                                    }
+
+                                        window.onclick = function (event) 
+                                        {
+
+                                            for (let i = 0; i < 9; i++) 
+                                        {
+                                            if (event.target == modallist[i]) 
+                                            {
+                                             modallist[i].style.display = "none";
+                                            }
+                                            
+                                        }
+                                            for (let i = 0; i < 9; i++) 
+                                        {
+                                            if (event.target == videomodallist[i]) 
+                                            {
+                                                videomodallist[i].style.display = "none";
+
+                                                document.getElementsByTagName('video')[i].pause();
+                                                console.log(document.getElementsByTagName('video')[i])
+                                            }
+                                        }
+
+                                    }
+                                            </script>
                     </ul>
 
                     <!-- Video -->
@@ -774,25 +839,25 @@
                                 <figure class="project-img">
                                     <div class="project-item-icon-box">
                                         <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
+                                      </div>
 
-                                    <img src="${thumbnail[i]}" alt="summary" loading="lazy">
-                                </figure>
+                                       <img src="${thumbnail[i]}" alt="summary" loading="lazy">
+                                      </figure>
 
-                                <h3 class="project-title">${videoname[i]}</h3>
+                                      <h3 class="project-title">${videoname[i]}</h3>
 
-                                <p class="project-category">Game Design</p>
+                                      <p class="project-category">Game Design</p>
 
-                            </a>
-                        </li>
-                        <div class="modal modal-video">
+                                     </a>
+                                     </li>
+                             <div class="modal modal-video">
                             
-                            <a class="modal-content" id="${i}"> <video controls  style="width:100%;">
-  <source src="${videolist[i]}" type="video/mp4">
-  Your browser does not support the video tag.
-</video></a>
-                            <div id="caption"></div>
-                        </div>`);
+                             <a class="modal-content" id="${i}"> <video controls  style="width:100%;">
+                             <source src="${videolist[i]}" type="video/mp4">
+                             Your browser does not support the video tag.
+                             </video></a>
+                             <div id="caption"></div>
+                             </div>`);
                                 videomodallist[i] = document.getElementsByClassName('modal-video')[i];
 
                             }
@@ -866,75 +931,6 @@
 
 
                     </li>
-                    </ul>
-
-
-                    <ul class="project-list">
-
-                        <script>
-                            imagelist = ["./assets/Project industry training/Industrial Training_1.jpg", "./assets/Project industry training/Industrial Training_2.jpg", "./assets/Project industry training/Industrial Training_3.jpg",
-                                "./assets/Project industry training/Industrial Training_4.jpg", "./assets/Project industry training/Industrial Training_5.jpg", "./assets/Project industry training/Industrial Training_6.jpg",
-                                "./assets/Project industry training/Industrial Training_7.jpg", "./assets/Project industry training/Industrial Training_8.jpg", "./assets/Project industry training/Industrial Training_9.jpg",];
-                            titlelist = ["Nature Painting 1", "Nature Painting 2", "Nature Painting 3",
-                                "Acrylic (Final)", "Acrylic", "Acrylic",
-                                "Drawing (Final)", "Drawing", "Drawing",];
-                            modallist = [];
-                            modalimagelist = [];
-
-                            for (let i = 0; i < 9; i++) {
-
-                                document.writeln(`  <li class="project-item  active" data-filter-item data-category="Project industry training">
-                            <a id="${i}" onclick="openmodal(${i})">
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-                                    <img src="${imagelist[i]}" alt="Project industry training" loading="lazy" class="imageportfolio">
-                                </figure>
-                                <h3 class="project-title">${titlelist[i]}</h3>
-                                <p class="project-category">Project industry training</p>
-                            </a>
-                        </li>
-                        <div class="modal">
-                            
-                            <img src='${imagelist[i]}' class="modal-content" id="${i}">
-                            <div id="caption"></div>
-                        </div>`);
-
-                                modallist[i] = document.getElementsByClassName('modal')[i];
-
-
-
-                            }
-                            function openmodal(i) {
-                                modallist[i].style.display = "block";
-
-                            }
-
-                            window.onclick = function (event) {
-
-                                for (let i = 0; i < 9; i++) {
-                                    if (event.target == modallist[i]) {
-
-                                        modallist[i].style.display = "none";
-                                    }
-                                }
-                                for (let i = 0; i < 9; i++) {
-                                    if (event.target == videomodallist[i]) {
-                                        videomodallist[i].style.display = "none";
-
-                                        document.getElementsByTagName('video')[i].pause();
-                                        console.log(document.getElementsByTagName('video')[i])
-                                    }
-                                }
-
-
-
-                            }
-
-                        </script>
-
-
                     </ul>
 
                 </section>
