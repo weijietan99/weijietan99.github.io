@@ -148,18 +148,23 @@ const pages = document.querySelectorAll("[data-page]");
 // add event to all nav link
 for (let i = 0; i < navigationLinks.length; i++) {
     navigationLinks[i].addEventListener("click", function () {
-
-        for (let i = 0; i < pages.length; i++) {
-            if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-                pages[i].classList.add("active");
-                navigationLinks[i].classList.add("active");
-                window.scrollTo(0, 0);
+        const clickedText = this.innerHTML.toLowerCase();
+        
+        // 移除所有导航链接的激活状态
+        navigationLinks.forEach(link => link.classList.remove("active"));
+        // 激活当前点击的导航链接
+        this.classList.add("active");
+        
+        // 切换页面显示
+        pages.forEach(page => {
+            if (page.dataset.page === clickedText) {
+                page.classList.add("active");
             } else {
-                pages[i].classList.remove("active");
-                navigationLinks[i].classList.remove("active");
+                page.classList.remove("active");
             }
-        }
-
+        });
+        
+        window.scrollTo(0, 0);
     });
 }
 
